@@ -33,7 +33,7 @@ const filename = argv[2];
 
 const hash2 = createHash("sha256");
 
-const input = createReadStream(filename);
+const input = createReadStream(filename);   
 
 input.on("readable", () => {
     // Only one element should be produced by the hash stream

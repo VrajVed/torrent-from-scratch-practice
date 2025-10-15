@@ -30,3 +30,16 @@ const hash3 = crypto.createHash("sha256");
 hash3.update("some data to hash");
 
 console.log(hash3.digest('hex'));
+
+const hash4 = createHash('sha256');
+
+hash4.update('one');
+console.log(hash4.copy().digest('hex'));
+
+hash4.update('two');
+console.log(hash4.copy().digest('hex'));
+
+hash4.update('three');
+console.log(hash4.copy().digest('hex'));
+
+// Etc.
