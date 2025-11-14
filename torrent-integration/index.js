@@ -27,5 +27,19 @@ console.log("===================================== Calculating SHA-01 infohash")
 let info_hash = crypto.createHash('sha1').update(encoded_info).digest('hex');
 console.log(info_hash);
 
-let announce = decoded_torrent['announce'].toString('utf8');
-console.log(announce)
+// let announce = decoded_torrent['announce'].toString('utf8');
+// console.log(announce)
+
+let announcelist = bencode.decode(torrent)['announce-list'];
+console.log(announcelist);
+
+// Convert each tier's URLs from Buffer to string
+let decodedAnnounceList = announcelist.map(tier => {
+    return tier.map(url => {
+        // Convert the Uint8Array/Buffer directly to string
+        return String.fromCharCode(...url);
+    });
+});
+
+console.log(decodedAnnounceList);
+console.log(decodedAnnounceList);
