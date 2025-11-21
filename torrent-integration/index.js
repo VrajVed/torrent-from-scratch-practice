@@ -42,4 +42,3 @@ let decodedAnnounceList = announcelist.map(tier => {
 });
 
 console.log(decodedAnnounceList);
-console.log(decodedAnnounceList);
