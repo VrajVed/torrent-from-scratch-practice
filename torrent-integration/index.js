@@ -2,6 +2,10 @@ import BencodeParser from './bencoder.js';
 import fs from 'fs';
 import crypto from 'crypto';
 import bencode from "bencode";
+import net from "net";
+import dgram from "dgram";
+
+
 
 console.log(fs.readFileSync('test.torrent').toString("utf8"));
 console.log("=====================================");
@@ -32,6 +36,8 @@ console.log(info_hash);
 
 let announcelist = bencode.decode(torrent)['announce-list'];
 console.log(announcelist);
+
+console.log("===================================== Decoding announce-list");
 
 // Convert each tier's URLs from Buffer to string
 let decodedAnnounceList = announcelist.map(tier => {
